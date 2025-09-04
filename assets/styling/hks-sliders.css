@@ -1,0 +1,274 @@
+/* =========================================================
+   HKS — What's New / Sliders styling
+   - Hero visible, no overlap
+   - Split sections with compact carousels
+   - Buttons: Book Now + Explore Our Services (strictly responsive)
+   ========================================================= */
+
+:root {
+  --hks-green: #85b69c;
+  --hks-green-700: #78a992;
+  --hks-ink: #2c2b2b;
+  --hks-outline: #cfe0d9;
+  --hks-radius: 10px;
+}
+
+/* Keep carousels crisp and un-rounded unless we say so */
+.carousel,
+.carousel-inner,
+.carousel-item,
+.carousel-item img {
+  border-radius: 10px !important;
+}
+
+/* ---------- HERO (Slider 1) ---------- */
+.hks-hero {
+  position: relative;
+  z-index: 3;
+}
+
+.hks-hero .carousel,
+.hks-hero .carousel-inner,
+.hks-hero .carousel-item {
+  height: 62vh; /* desktop/laptop */
+  min-height: 360px;
+  overflow: hidden;
+}
+
+.hks-hero .carousel-item img {
+  width: 100%;
+  height: 100% !important;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Tablet */
+@media (max-width: 991.98px) {
+  .hks-hero .carousel,
+  .hks-hero .carousel-inner,
+  .hks-hero .carousel-item {
+    height: 48vh;
+    min-height: 280px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 575.98px) {
+  .hks-hero .carousel,
+  .hks-hero .carousel-inner,
+  .hks-hero .carousel-item {
+    height: 40vh;
+    min-height: 220px;
+  }
+}
+
+/* ---------- Heading + intro under hero ---------- */
+.hks-overview {
+  position: relative;
+  z-index: 2;
+  padding: 28px 0 10px;
+}
+
+.hks-overview .hks-title {
+  margin: 0 auto 10px;
+  text-align: center;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 400;
+  font-size: clamp(28px, 4.2vw, 44px);
+  line-height: 1.15;
+  color: var(--hks-ink);
+  letter-spacing: 0.2px;
+}
+
+.hks-overview .hks-sub {
+  max-width: 980px;
+  margin: 6px auto 0;
+  text-align: center;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 300;
+  font-size: clamp(14px, 1.4vw, 18px);
+  line-height: 1.45;
+  color: var(--hks-ink);
+  opacity: 0.92;
+}
+
+/* ---------- Split sections (2 & 3) ---------- */
+.hks-split {
+  padding: 36px 0;
+}
+
+.hks-split .hks-split-text h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 400;
+  font-size: clamp(22px, 3vw, 32px);
+  margin: 0 0 8px;
+  color: var(--hks-ink);
+}
+
+.hks-split .hks-split-text p {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 400;
+  font-size: clamp(14px, 1.4vw, 18px);
+  line-height: 1.6;
+  color: var(--hks-ink);
+  margin: 0 0 clamp(14px, 1.6vw, 18px);
+}
+
+/* ---------- Buttons: UNIFIED + RESPONSIVE ---------- */
+/* Container holding both buttons */
+.hks-split .btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(10px, 1.4vw, 14px);
+}
+
+/* Base button look (applies to both anchors and buttons) */
+.hks-split .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: clamp(10px, 1.2vw, 12px) clamp(18px, 2.2vw, 22px);
+  font-family: Lato, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  font-size: clamp(14px, 1.2vw, 16px);
+  font-weight: 400;
+  letter-spacing: 0.2px;
+
+  border-radius: var(--hks-radius);
+  border: 1px solid transparent;
+  line-height: 1.1;
+  text-decoration: none !important;
+
+  transition: background-color 0.18s ease, border-color 0.18s ease,
+    box-shadow 0.18s ease, transform 0.06s ease;
+  will-change: transform;
+}
+
+/* Primary (Book Now) */
+.hks-split .btn-primary {
+  background-color: var(--hks-green);
+  border-color: var(--hks-green);
+  color: #fff;
+}
+.hks-split .btn-primary:hover {
+  background-color: var(--hks-green-700);
+  border-color: var(--hks-green-700);
+}
+.hks-split .btn-primary:active {
+  transform: scale(0.98);
+}
+.hks-split .btn-primary:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 3px var(--hks-outline);
+}
+
+/* Outline (Explore Our Services) */
+.hks-split .btn-outline {
+  background: transparent;
+  color: var(--hks-ink);
+  border-color: var(--hks-green);
+}
+.hks-split .btn-outline:hover {
+  background: #eaf2ee;
+  border-color: var(--hks-green);
+}
+.hks-split .btn-outline:active {
+  transform: scale(0.98);
+}
+.hks-split .btn-outline:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 3px var(--hks-outline);
+}
+
+/* Mobile: stack full-width & keep equal look */
+@media (max-width: 575.98px) {
+  .hks-split .btn-row {
+    flex-direction: column;
+  }
+  .hks-split .btn {
+    width: 100%;
+  }
+}
+
+/* ---------- Compact carousels beside text ---------- */
+.hks-compact-carousel .carousel-item {
+  height: 480px;
+  overflow: hidden;
+}
+.hks-compact-carousel .carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Responsive heights */
+@media (max-width: 1199.98px) {
+  .hks-compact-carousel .carousel-item {
+    height: 420px;
+  }
+}
+@media (max-width: 991.98px) {
+  .hks-compact-carousel .carousel-item {
+    height: 360px;
+  }
+}
+@media (max-width: 575.98px) {
+  .hks-compact-carousel .carousel-item {
+    height: 260px;
+  }
+}
+
+/* ---------- Navbar color consistency for What’s New ---------- */
+.nav_main_top .navbar-nav .nav-link,
+.nav_main_top .navbar-nav a {
+  color: var(--hks-ink) !important;
+  text-decoration: none !important;
+}
+.nav_main_top .navbar-nav .nav-link:hover {
+  color: var(--hks-green) !important;
+}
+
+/* ---------- Brand strip: keep exactly one line if duplicated ---------- */
+.brand-strip {
+  border-top: 1px solid #d7b5a4;
+  border-bottom: 1px solid #d7b5a4;
+}
+.brand-strip + .brand-strip {
+  display: none !important;
+}
+/* ===== Mobile fix for sliders 2 & 3 (hks-media only) ===== */
+@media (max-width: 575.98px) {
+  /* keep the frame neat and avoid odd overflow */
+  .hks-media {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px; /* optional, matches your compact look */
+  }
+
+  /* give the slide a sensible mobile height */
+  .hks-media .carousel-item {
+    height: 52vh; /* viewport-based so tall phones look good */
+    min-height: 320px; /* safety floor for small devices */
+    overflow: hidden;
+  }
+
+  /* make the image fill and center */
+  .hks-media .carousel-item img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center center;
+  }
+}
+
+/* (Optional) small tablets, if you want a bit more height than phones */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .hks-media .carousel-item {
+    height: 100%;
+  }
+}
